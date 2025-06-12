@@ -123,7 +123,7 @@ namespace JTMS.ViewModels
             PdfDocument doc = new PdfDocument();
             PdfFont textFont = new PdfTrueTypeFont(new Font("Arial", 13, System.Drawing.FontStyle.Regular));
             var page = doc.Pages.Add();
-            page.Section.PageSettings.Size = new SizeF(PdfPageSize.A4.Width, PdfPageSize.A4.Height);
+            page.Section.PageSettings.Size = PageSize.LableSize;
 
             var col = 5.0f;
             var row = 5.0f;
@@ -159,7 +159,7 @@ namespace JTMS.ViewModels
                         {
                             row = 5.0f;
                             page = doc.Pages.Add();
-                            page.Section.PageSettings.Size = new SizeF(PdfPageSize.A4.Width, PdfPageSize.A4.Height);
+                            page.Section.PageSettings.Size = PageSize.LableSize;
                         }
                     }
                 }
@@ -180,7 +180,7 @@ namespace JTMS.ViewModels
         {
             PdfDocument doc = new PdfDocument();
             PdfPage page = doc.Pages.Add();
-            page.Section.PageSettings.Size = new SizeF(PdfPageSize.A4.Width, PdfPageSize.A4.Height);
+            page.Section.PageSettings.Size = PageSize.LableSize;
             PdfFont textFont = new PdfTrueTypeFont(new Font("Arial", 13, System.Drawing.FontStyle.Regular));
 
             var col = 5.0f;
@@ -216,7 +216,7 @@ namespace JTMS.ViewModels
                     {
                         row = 5.0f;
                         page = doc.Pages.Add();
-                        page.Section.PageSettings.Size = new SizeF(PdfPageSize.A4.Width, PdfPageSize.A4.Height);
+                        page.Section.PageSettings.Size = PageSize.LableSize;
                     }
                 }
             }
@@ -375,7 +375,7 @@ namespace JTMS.ViewModels
             using (PdfDocument document = new PdfDocument())
             {
                 PdfPage page = document.Pages.Add();
-                page.Section.PageSettings.Size = new SizeF(PdfPageSize.A4.Width, PdfPageSize.A4.Height);
+                page.Section.PageSettings.Size = PageSize.LableSize;
 
                 PdfFont font = new PdfTrueTypeFont(new Font("Arial", 28, System.Drawing.FontStyle.Bold));
                 PdfFont textFont = new PdfTrueTypeFont(new Font("Arial", 20, System.Drawing.FontStyle.Bold));
@@ -481,7 +481,7 @@ namespace JTMS.ViewModels
                     {
                         pHeight = 5.0f;
                         page = document.Pages.Add();
-                        page.Section.PageSettings.Size = new SizeF(PdfPageSize.A4.Width, PdfPageSize.A4.Height);
+                        page.Section.PageSettings.Size = PageSize.LableSize;
                     }
                 }//
 
@@ -500,7 +500,7 @@ namespace JTMS.ViewModels
         {
             PdfDocument doc = new PdfDocument();
             PdfPage page = doc.Pages.Add();
-            page.Section.PageSettings.Size = new SizeF(PdfPageSize.A4.Width, PdfPageSize.A4.Height);
+            page.Section.PageSettings.Size = PageSize.LableSize;
             PdfFont textFont = new PdfTrueTypeFont(new Font("Arial", 13, System.Drawing.FontStyle.Regular));
 
             var col = 5.0f;
@@ -530,7 +530,7 @@ namespace JTMS.ViewModels
                     {
                         row = 5.0f;
                         page = doc.Pages.Add();
-                        page.Section.PageSettings.Size = new SizeF(PdfPageSize.A4.Width, PdfPageSize.A4.Height);
+                        page.Section.PageSettings.Size = PageSize.LableSize;
                     }
                 }
             }
