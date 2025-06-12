@@ -1,0 +1,37 @@
+﻿<UserControl
+    x:Class="JTMS.Views.ProjectShell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:VM="clr-namespace:JTMS.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:JTMS.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:JTMS.Views"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+
+        <ContentControl
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="5"
+            Content="{Binding CurrentViewModel}"
+            Focusable="False"
+            IsTabStop="False">
+            <ContentControl.Resources>
+
+                <DataTemplate DataType="{x:Type VM:ProjectViewModel}">
+                    <views:ProjectView />
+                </DataTemplate>
+
+                <DataTemplate DataType="{x:Type VM:MoldViewModel}">
+                    <views:MoldView />
+                </DataTemplate>
+
+            </ContentControl.Resources>
+        </ContentControl>
+
+    </Grid>
+</UserControl>

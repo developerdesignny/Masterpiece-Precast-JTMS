@@ -1,0 +1,135 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:VM="clr-namespace:JTMS.ViewModels.DialogsVM"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <DataTemplate DataType="{x:Type VM:ScanProcessSelectorViewModel}">
+
+        <Grid
+            Width="500"
+            Height="200"
+            HorizontalAlignment="Center"
+            Background="#3F494D">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="5,5,5,0"
+                Padding="5"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                BorderThickness="0"
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                Content="{materialDesign:PackIcon Kind=WindowClose,
+                                                  Size=20}"
+                Cursor="Hand"
+                Focusable="False"
+                Foreground="White"
+                Style="{StaticResource MaterialDesignFlatDarkButton}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+            </Button>
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="18"
+                FontWeight="DemiBold"
+                Foreground="White"
+                Text="Select a scan mode" />
+
+            <ComboBox
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Width="350"
+                Margin="10,25,20,10"
+                Padding="5"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                materialDesign:HintAssist.Foreground="Black"
+                materialDesign:HintAssist.Hint="Operation Mode"
+                materialDesign:HintAssist.IsFloating="True"
+                materialDesign:ThemeAssist.Theme="Light"
+                Background="White"
+                Foreground="Black"
+                SelectedIndex="0"
+                SelectedValue="{Binding ScanMode}"
+                SelectedValuePath="Content">
+                <ComboBoxItem Content="Process 1 (Mold Ready)" />
+                <ComboBoxItem Content="Process 2 (Pouring)" />
+                <ComboBoxItem Content="Process 3 (Ready on Pallet)" />
+            </ComboBox>
+
+            <StackPanel
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Margin="0,20,0,0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+
+                <Button
+                    Width="120"
+                    Height="40"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    Background="#216FA4"
+                    BorderThickness="0"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    Content="OK"
+                    FontFamily="Open Sans"
+                    FontSize="16"
+                    FontWeight="SemiBold"
+                    Foreground="White">
+                    <Button.CommandParameter>
+                        <system:Boolean>True</system:Boolean>
+                    </Button.CommandParameter>
+                </Button>
+
+                <Button
+                    Width="120"
+                    Height="40"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    Background="Brown"
+                    BorderThickness="0"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    Content="Cancel"
+                    FontFamily="Open Sans"
+                    FontSize="16"
+                    FontWeight="SemiBold"
+                    Foreground="White">
+                    <Button.CommandParameter>
+                        <system:Boolean>False</system:Boolean>
+                    </Button.CommandParameter>
+                </Button>
+
+            </StackPanel>
+
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

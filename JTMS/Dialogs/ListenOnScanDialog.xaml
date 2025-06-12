@@ -1,0 +1,90 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:VM="clr-namespace:JTMS.ViewModels.DialogsVM"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <DataTemplate DataType="{x:Type VM:ListenOnScanViewModel}">
+
+        <Grid
+            Width="500"
+            Height="200"
+            HorizontalAlignment="Center"
+            Background="#3F494D">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="5,5,5,0"
+                Padding="5"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                BorderThickness="0"
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                Content="{materialDesign:PackIcon Kind=WindowClose,
+                                                  Size=20}"
+                Cursor="Hand"
+                Focusable="False"
+                Foreground="White"
+                Style="{StaticResource MaterialDesignFlatDarkButton}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+            </Button>
+
+
+            <ComboBox
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Width="250"
+                Margin="0,10,0,0"
+                Padding="5"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                materialDesign:HintAssist.Foreground="Black"
+                materialDesign:HintAssist.Hint="Operation Mode"
+                materialDesign:HintAssist.IsFloating="True"
+                materialDesign:TextFieldAssist.TextFieldCornerRadius="5"
+                materialDesign:ThemeAssist.Theme="Light"
+                Background="White"
+                FontSize="16"
+                FontWeight="DemiBold"
+                Foreground="Black"
+                SelectedValue="{Binding ScanMode}"
+                SelectedValuePath="Content">
+                <ComboBoxItem Content="Process 1 (Mold Ready)" />
+                <ComboBoxItem Content="Process 2 (Pouring)" />
+                <ComboBoxItem Content="Process 3 (Ready on Pallet)" />
+            </ComboBox>
+
+            <materialDesign:PackIcon
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Width="80"
+                Height="80"
+                Margin="0,15,0,15"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Kind="BarcodeScanner" />
+
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

@@ -1,0 +1,213 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:VM="clr-namespace:JTMS.ViewModels.DialogsVM"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+
+    <DataTemplate DataType="{x:Type VM:AddMoldDialogViewModel}">
+
+        <Grid
+            Width="650"
+            Height="320"
+            HorizontalAlignment="Center"
+            Background="#3F494D">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="5,5,5,0"
+                Padding="5"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                materialDesign:ButtonAssist.CornerRadius="5"
+                BorderThickness="0"
+                Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                Content="{materialDesign:PackIcon Kind=WindowClose,
+                                                  Size=20}"
+                Cursor="Hand"
+                Focusable="False"
+                Foreground="White"
+                Style="{StaticResource MaterialDesignFlatDarkButton}"
+                WindowChrome.IsHitTestVisibleInChrome="True">
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+            </Button>
+
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Margin="0,5,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="18"
+                FontWeight="DemiBold"
+                Foreground="White"
+                Text="Mold" />
+
+            <StackPanel
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="20,30,10,0"
+                Orientation="Horizontal">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="13"
+                    FontWeight="DemiBold"
+                    Foreground="White"
+                    Text="Mold Amoint" />
+                <xctk:IntegerUpDown
+                    Width="210"
+                    Height="35"
+                    Margin="10,0,0,0"
+                    Padding="5"
+                    HorizontalAlignment="Center"
+                    AllowTextInput="True"
+                    DefaultValue="1"
+                    DisplayDefaultValueOnEmptyText="True"
+                    IsEnabled="{Binding IsEditing, Converter={StaticResource InvertBooleanConverter}}"
+                    Minimum="1"
+                    TextAlignment="Left"
+                    Value="{Binding Mold.MoldAmount, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            </StackPanel>
+
+            <TextBox
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="10,30,20,0"
+                Padding="5"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                materialDesign:HintAssist.Foreground="Black"
+                materialDesign:HintAssist.Hint="Mold Size"
+                materialDesign:HintAssist.IsFloating="True"
+                Background="White"
+                Foreground="Black"
+                IsEnabled="{Binding IsSubMold, Converter={StaticResource InvertBooleanConverter}}"
+                Text="{Binding Mold.MoldSize}" />
+
+            <TextBox
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="20,15,10,0"
+                Padding="5"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                materialDesign:HintAssist.Foreground="Black"
+                materialDesign:HintAssist.Hint="Mold Code"
+                materialDesign:HintAssist.IsFloating="True"
+                Background="White"
+                Foreground="Black"
+                IsEnabled="{Binding IsSubMold, Converter={StaticResource InvertBooleanConverter}}"
+                Text="{Binding Mold.MoldCode}" />
+
+            <TextBox
+                Grid.Row="2"
+                Grid.Column="1"
+                Margin="10,15,20,0"
+                Padding="5"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                materialDesign:HintAssist.Foreground="Black"
+                materialDesign:HintAssist.Hint="Mold Info"
+                materialDesign:HintAssist.IsFloating="True"
+                Background="White"
+                Foreground="Black"
+                IsEnabled="{Binding IsSubMold, Converter={StaticResource InvertBooleanConverter}}"
+                Text="{Binding Mold.MoldInfo}" />
+
+            <TextBox
+                Grid.Row="3"
+                Grid.Column="0"
+                Margin="20,15,10,0"
+                Padding="5"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                materialDesign:HintAssist.Foreground="Black"
+                materialDesign:HintAssist.Hint="Cut"
+                materialDesign:HintAssist.IsFloating="True"
+                Background="White"
+                Foreground="Black"
+                IsEnabled="{Binding IsSubMold, Converter={StaticResource InvertBooleanConverter}}"
+                Text="{Binding Mold.Cut}" />
+
+            <TextBox
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="10,15,20,0"
+                Padding="5"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                materialDesign:HintAssist.Foreground="Black"
+                materialDesign:HintAssist.Hint="Paint"
+                materialDesign:HintAssist.IsFloating="True"
+                Background="White"
+                Foreground="Black"
+                IsEnabled="{Binding IsSubMold, Converter={StaticResource InvertBooleanConverter}}"
+                Text="{Binding Mold.Paint}" />
+
+            <StackPanel
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Margin="0,20,0,0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+
+                <Button
+                    Width="120"
+                    Height="40"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    Background="#216FA4"
+                    BorderThickness="0"
+                    Command="{Binding SaveCommand}"
+                    Content="Save"
+                    FontFamily="Open Sans"
+                    FontSize="16"
+                    FontWeight="SemiBold"
+                    Foreground="White" />
+
+                <Button
+                    Width="120"
+                    Height="40"
+                    Margin="20,0,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    materialDesign:ButtonAssist.CornerRadius="5"
+                    Background="Brown"
+                    BorderThickness="0"
+                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"
+                    Content="Cancel"
+                    FontFamily="Open Sans"
+                    FontSize="16"
+                    FontWeight="SemiBold"
+                    Foreground="White">
+                    <Button.CommandParameter>
+                        <system:Boolean>False</system:Boolean>
+                    </Button.CommandParameter>
+                </Button>
+
+            </StackPanel>
+
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>
